@@ -11,20 +11,20 @@ public class InputValidator {
 	    boolean invalid = true;
 	    String output = null;
 
-	    do {
-	        try {
-	        	if(invalid && output != null) {
-	        		System.out.print(errorMessage);
-	        	}
-	            output = in.readLine();
-	            if(output.length() > 0 && output.matches("^[a-zA-Z]*$")) {
-	            	 invalid = false;
-	            }	            
-	        }catch(IOException e) {
-	            e.printStackTrace();
-	            System.out.print(errorMessage);
-	        }
-	    } while(invalid);
+		    do {
+		        try {
+		        	if(invalid && output != null) {
+		        		System.out.print(errorMessage);
+		        	}
+		            output = in.readLine();
+		            if(output.length() > 0 && output.matches("^[a-zA-Z]*$")) {
+		            	 invalid = false;
+		            }	            
+		        }catch(IOException e) {
+		            e.printStackTrace();
+		            System.out.print(errorMessage);
+		        }
+		    } while(invalid);
 
 	    return output;
 	}
@@ -35,23 +35,24 @@ public static int numberValidator(BufferedReader in, int limit) {
     boolean invalid = true;
     int output = -1;
 
-    do {
-        try {
-        	if(invalid && output != -1) {
-        		System.out.print(errorMessage);
-        	}
-            output = Integer.parseInt(in.readLine());
-            if( output >=0  && output <= limit) {
-            	invalid = false;
-            }            
-        } catch(NumberFormatException e) {
-            System.out.print(errorMessage);
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-    } while(invalid);
+	    do {
+	        try {
+	        	if(invalid && output != -1) {
+	        		System.out.print(errorMessage);
+	        	}
+	            output = Integer.parseInt(in.readLine());
+	            if( output >=0  && output <= limit) {
+	            	invalid = false;
+	            }            
+	        } catch(NumberFormatException e) {
+	            System.out.print(errorMessage);
+	        } catch(IOException e) {
+	            e.printStackTrace();
+	        }
+	        
+	    } while(invalid);
 
-    return output;
+	    return output;
 	}
 
 }
