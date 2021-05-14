@@ -129,7 +129,7 @@ public class PlayBowling {
         
         BowlingAssistant.speak(" ");
         BowlingAssistant.speak("Lets bowl now ...");
-        BowlingAssistant.speak("There will be 10 rounds and 2 rolls each round ...You can hit strike and spare to get bonus roll");
+        BowlingAssistant.speak("There will be 10 frames and 2 rolls each round ...You can hit strike and spare to get bonus roll");
         BowlingAssistant.speak(" ");
         BowlingAssistant.speak("************************************************************");
         BowlingAssistant.speak(" ");
