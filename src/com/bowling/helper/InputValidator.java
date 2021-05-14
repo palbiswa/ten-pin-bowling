@@ -29,9 +29,9 @@ public class InputValidator {
 	    return output;
 	}
 	
-public static int numberValidator(BufferedReader in, int limit) {
+public static int numberValidator(BufferedReader in, int minLimit, int maxLimit) {
 		
-	String errorMessage = "Please enter a valid number between : 0 to " + limit + "\n";
+	String errorMessage = "Please enter a valid number between : " + minLimit + " to " + maxLimit + "\n";
     boolean invalid = true;
     int output = -1;
 
@@ -41,7 +41,7 @@ public static int numberValidator(BufferedReader in, int limit) {
 	        		System.out.print(errorMessage);
 	        	}
 	            output = Integer.parseInt(in.readLine());
-	            if( output >=0  && output <= limit) {
+	            if( output >= minLimit  && output <= maxLimit) {
 	            	invalid = false;
 	            }            
 	        } catch(NumberFormatException e) {

@@ -49,7 +49,7 @@ public class PlayBowling {
         BowlingAssistant.speak("How many players will play today");
         
           
-        int totalPlayer = InputValidator.numberValidator(br,10);
+        int totalPlayer = InputValidator.numberValidator(br,1,10);
         BowlingAssistant.speak(" "); 
         
         if(totalPlayer < 2) {
@@ -58,19 +58,17 @@ public class PlayBowling {
         	BowlingAssistant.speak(" ");
         	BowlingAssistant.speak("Are you crazy ? You don't want your friend to play with you ");
         	BowlingAssistant.speak(" ");
-        	BowlingAssistant.speak("Let me know how many players will play today once again ?");        	
-        	BowlingAssistant.speak("This is your last chance to enter total players correctly");
-        	       
+        	BowlingAssistant.speak("Let me know how many players will play today once again ?");
                 
-        	totalPlayer = InputValidator.numberValidator(br,10);
+        	totalPlayer = InputValidator.numberValidator(br,2,10);
             
-            if(totalPlayer < 2) {
+            /*if(totalPlayer < 2) {
             	BowlingAssistant.speak("Are you joking....");
             	BowlingAssistant.speak("I will not able to assist you to play this game with less than 2 players");
             	BowlingAssistant.speak("Good Luck and start again");
             	System.exit(0);
             	
-            }
+            }*/
         }       
         
         BowlingAssistant.speak("OK, We will play this game with " + totalPlayer + " players");
@@ -145,7 +143,7 @@ public class PlayBowling {
         }else {
         	
         	BowlingAssistant.speak("Ok ! How may frames you want to play ?"); 
-        	totalframes =  InputValidator.numberValidator(br, 10);
+        	totalframes =  InputValidator.numberValidator(br, 1,10);
         	BowlingAssistant.speak("I modified your game and we will play with : " + totalframes + " frames for each player. ");
         }
                 
@@ -160,7 +158,7 @@ public class PlayBowling {
 			// reset frame
 			frame = 1;
 			int roll = 1;
-			BowlingAssistant.speak("Your points has to be between 1 to 10");
+			BowlingAssistant.speak("Your points has to be between 0 to 10");
 			int bonus = 0;
 			while (frame <= totalframes) {	
 				
@@ -177,9 +175,9 @@ public class PlayBowling {
 						 else {
 							 int balance = 10 - lastScore;
 							 BowlingAssistant.speak("How much is the scored for frame : " + frame + " and roll :" + roll);
-							 BowlingAssistant.speak("You scored " + lastScore + " in first roll. So you are allowed enter points between " + 1 + " and " + balance);
+							 BowlingAssistant.speak("You scored " + lastScore + " in first roll. So you are allowed enter points between " + 0 + " and " + balance);
 							 
-							 int score = InputValidator.numberValidator(br,balance);								 
+							 int score = InputValidator.numberValidator(br,0,balance);								 
 							 result.add(score); 
 							 if((lastScore + score) == 10) {
 								BowlingAssistant.speak("WoW ....you hit  a spare"); 
@@ -189,7 +187,7 @@ public class PlayBowling {
 						 
 					}else {
 						 BowlingAssistant.speak("How much is the scored for frame : " + frame + " and roll :" + roll);	
-						 int score = InputValidator.numberValidator(br,10);						 
+						 int score = InputValidator.numberValidator(br,0,10);						 
 						 result.add(score);
 					}					
 			        roll++;
@@ -208,7 +206,7 @@ public class PlayBowling {
 				
 				for (int i = 1; i <= bonus; i++) {
 					 BowlingAssistant.speak("How much You scored for bonus : " + i );						 
-					 int score = InputValidator.numberValidator(br,10);					 
+					 int score = InputValidator.numberValidator(br,0,10);					 
 					 result.add(score);				
 				}
 			}else {
